@@ -1,3 +1,4 @@
+//jshint esversion:6
 // --- Forms on Home & Register Pages ---
 
 var title = document.querySelector('title').text;
@@ -208,7 +209,7 @@ if (title === 'Famous Spots') {
 
 
 
-////////mahda-booking page////////////////////
+///////////////////////////////mahda-booking page////////////////////////////////////
 if (document.getElementById("bodybooking")){
 
 
@@ -216,24 +217,21 @@ if (document.getElementById("bodybooking")){
    var errorCName = document.getElementById("errorcname");
    var errorCNum = document.getElementById("errorcnum");
    var errorMonth = document.getElementById("errormonth");
-   var errorDate = document.getElementById("errordate");
    var errorYear = document.getElementById("erroryear");
-
    var errorTraveler = document.getElementById("errortraveler");
 
 
 
 
-
-   submitButton.addEventListener("click", function(event) {////start of click function for validation form & submit
-
+   if (submitButton){
+    submitButton.addEventListener("click", validate);////start of click function for validation form & submit
+    }
+    function validate(){
     errorCName.style.display = "none";
     errorCNum.style.display = "none";
     errorMonth.style.display = "none";
-    errorDate.style.display = "none";
     errorYear.style.display = "none";
     correctcnum.style.display="none";
-
     errorTraveler.style.display="none";
 
 
@@ -241,7 +239,6 @@ if (document.getElementById("bodybooking")){
 
     var CreditNumber = document.creditform.CCNumber.value;
     var Month = document.creditform.month.value;
-    var Date = document.creditform.date.value;
     var Year = document.creditform.year.value;
 
     var Travelers = document.creditform.TravelerCount.value;
@@ -286,12 +283,6 @@ if (document.getElementById("bodybooking")){
        return false;
    }
 
-   var selectdate = document.getElementById("date");  //// date validation
-   if (selectdate.value==0){
-       event.preventDefault();
-       errorDate.style.display ="block";
-       return false;
-   }
 
    var selectyear = document.getElementById("year");  //// year validation
    if (selectyear.value==0){
@@ -301,16 +292,7 @@ if (document.getElementById("bodybooking")){
    }
 
 
-
-
-
-
-
-
-});////end of click function for validation & submit
-
-
-
+}////end of click function for validation & submit
 
 
 
